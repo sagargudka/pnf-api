@@ -1,0 +1,24 @@
+{
+  "name": "pnf-api",
+  "version": "1.0.0",
+  "description": "Backend api for paper and films application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Krina Shah",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "capitalize": "^1.0.0",
+    "express": "^4.16.3",
+    "handlebar": "^1.0.0",
+    "html-pdf": "^2.2.0",
+    "moment": "^2.22.2",
+    "number-to-words": "^1.2.3",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.16",
+    "underscore": "^1.9.1",
+    "uuid": "^3.2.1"
+  }
+}

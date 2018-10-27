@@ -1,0 +1,910 @@
+{{#if order.isTaxInvoice}}
+<div style="border-collapse: collapse" border="1">
+    <table style="width: 100%">
+        <tbody>
+            <tr style="text-align: center">
+                <td style="width:25%;">
+                    <img src="data:image/jpeg;base64,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"
+                        width="180" height="60" />
+                </td>
+                <td style="width: 75%;">
+                    <strong style=" font-size: 30px">PAPER N FILMS INTERNATIONAL</strong>
+                    <br/>Address - {{vendor.addressLine}}
+                    <br/> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style=" width: 100%; border-collapse: collapse; padding: 2px" border="1">
+        <tbody style="width: 100%">
+            <tr>
+                <td colspan="11" style="font-size:20px;font-weight: bold ;text-align: center">
+                    {{order.type}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>M/s {{order.client.name}}</strong>
+                    <br/> {{order.client.address.addressLine}}
+                    <br/> {{order.client.address.state}}
+                    <br/> Contact: {{order.client.phoneNumber}}
+                    <br/>
+                    <strong>GST #: {{order.client.gstNumber}}</strong>
+                </td>
+                <td colspan="4">
+                    <strong>Invoice #: {{order.id}}</strong>
+                    <br/>
+                    <br/>
+                    <strong>Shipping Address</strong>
+                    <br/> {{order.client.shippingAddress.addressLine}}
+                    <br/> {{order.client.shippingAddress.state}}
+                    <br/>
+                </td>
+                <td colspan="4">
+                    <p style="text-align: right">Date: {{order.date}}</p>
+                    <br/>
+                    <br/>Place: {{order.client.shippingAddress.state}}
+                    <br/>Transporter: {{order.transporter}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td style="width: 3%; text-align: right">#</td>
+                <td style="width: 25%;">Description</td>
+                <td style="width: 8%; text-align: center">HSN</td>
+                <td style="width: 8%; text-align: right">Qty</td>
+                <td style="width: 8%; text-align: right">Rate</td>
+                <td style="width: 8%; text-align: center">Unit</td>
+                <td style="width: 8%; text-align: right">Net Amt</td>
+                <td style="width: 8%; text-align: right">CGST</td>
+                <td style="width: 8%; text-align: right">SGST</td>
+                <td style="width: 8%; text-align: right">IGST</td>
+                <td style="width: 8%; text-align: right">Gross Amt</td>
+            </tr>
+            {{#each order.items}}
+
+            <tr style="font-size: 12px">
+                <td style="text-align: right;">{{ sr }}</td>
+                <td>
+                    <strong>{{ name }}</strong>
+                    <br/> {{ description }}
+                </td>
+                <td style="text-align: center">{{ hsnCode }}</td>
+                <td style="text-align: right;">{{ quantity}}</td>
+                <td style="text-align: right;">₹ {{ basePrice}}</td>
+                <td style="text-align: center">{{ unit}}</td>
+                <td style="text-align: right;">₹ {{ amount.netAmount }}</td>
+                <td style="text-align: right;">₹ {{ amount.cgst.value }}
+                    <br/>( {{amount.cgst.percent}}% )</td>
+                <td style="text-align: right;">₹ {{ amount.sgst.value }}
+                    <br/>( {{amount.sgst.percent}}% )</td>
+                <td style="text-align: right;">₹ {{ amount.igst.value }}
+                    <br/>( {{amount.igst.percent}}% )</td>
+                <td style="text-align: right;">₹ {{ amount.grossAmount }}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+
+            <tr style="font-weight: bold">
+
+                <td colspan="5" rowspan="5">
+                    Paper N Films International
+                    <br/> GST #: {{vendor.gstNumber}}
+                    <br/> PAN #: {{vendor.panNumber}}
+                    <br/> Account #: {{vendor.bank.accountNumber}}
+                    <br/> {{vendor.bank.addressLine}}
+                    <br/> IFSC code: {{vendor.bank.ifscCode}}
+                </td>
+                <td colspan="3">Net Amount:</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.netAmount}}</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="3">Transport charges :</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.transportCharges}}</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="3">CGST:</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.cgst}}</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="3">SGST:</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.sgst}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="3">IGST:</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.igst}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="5" rowspan="3">
+                    <strong>Amount in ₹: {{ order.total.totalInWords }} only</strong>
+                </td>
+                <td colspan="3">Rounded by:</td>
+                <td colspan="3" style="text-align: right;">₹ {{order.total.roundedBy}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="3">Gross Amount:&nbsp;</td>
+                <td colspan="4" style="text-align: right;">₹ {{order.total.grossAmount}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Payment Given: &nbsp;₹ {{order.total.paymentGiven}}</td>
+                <td colspan="4">Payment Left: &nbsp;₹ {{order.total.paymentLeft}}</td>
+            </tr>
+            <tr>
+                <td colspan="5">
+
+                    <strong>Terms and conditions:</strong>
+                    <br/>
+                    <blockquote>
+                        *Goods once sold cannot be taken back or exchanged.
+                        <br/> * All Bank charges and insurance are borne by the consignee.
+                        <br/> * Our responsiblity ceases as soon as the goods leave our premise.
+                        <br/> * Payment within due date otherwise 24% p.a. interest will be charged.
+                        <br/> * Our turnover is less than 1.5 cr.
+
+                    </blockquote>
+
+                </td>
+                <td colspan="6" style="text-align: right;">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <strong>For Paper and Films International</strong>
+                    <br/>
+                    <br/>
+                    <strong>Proprietor</strong>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{{else}}
+<div style="border-collapse: collapse" border="1">
+    <table style="width: 100%">
+        <tbody>
+            <tr style="text-align: center">
+                <td style="width:25%;">
+                    <img src="data:image/jpeg;base64,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"
+                        width="180" height="60" />
+                </td>
+                <td style="width: 75%;">
+                    <strong style=" font-size: 30px">PAPER N FILMS INTERNATIONAL</strong>
+                    <br/>Address - {{vendor.addressLine}}
+                    <br/> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table style=" width: 100%; border-collapse: collapse; padding: 2px" border="1">
+        <tbody style="width: 100%">
+            <tr>
+                <td colspan="7" style="font-size:20px;font-weight: bold ;text-align: center">
+                    Cost Estimation (Customer Copy)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>M/s {{order.client.name}}</strong>
+                    <br/> {{order.client.address.addressLine}}
+                    <br/> {{order.client.address.state}}
+                    <br/> Contact: {{order.client.contactNumber}}
+                </td>
+                <td colspan="3">
+                    <strong>Invoice #: {{order.id}}</strong>
+                    <br/>
+                    <strong>Shipping Address</strong>
+                    <br/> {{order.client.shippingAddress.addressLine}}
+                    <br/> {{order.client.shippingAddress.state}}
+                </td>
+                <td colspan="1">
+                    <p style="text-align: right">Date: {{order.date}}</p>
+                    Transporter: {{order.transporter}}
+                    <br/>Place: {{order.client.shippingAddress.state}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td style="width: 5%; text-align: right">#</td>
+                <td style="width: 30%;">Description</td>
+                <td style="width: 10%; text-align: center">HSN</td>
+                <td style="width: 10%; text-align: right">Qty</td>
+                <td style="width: 10%; text-align: right">Rate</td>
+                <td style="width: 15%; text-align: center">Unit</td>
+                <td style="width: 20%; text-align: right">Amount</td>
+            </tr>
+            {{#each order.items}}
+
+            <tr style="font-size: 12px">
+                <td style="text-align: right;">{{ sr }}</td>
+                <td>
+                    <strong>{{ name }}</strong>
+                    <br/> {{ description }}
+                </td>
+                <td style="text-align: center">{{ hsnCode }}</td>
+                <td style="text-align: right;">{{ quantity }}</td>
+                <td style="text-align: right;">₹ {{ basePrice }}</td>
+                <td style="text-align: center">{{ unit }}</td>
+                <td style="text-align: right;">₹ {{ amount.grossAmount }}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td colspan="4" rowspan="2">
+                    <strong>Amount in ₹: {{ order.total.totalInWords }} only</strong>
+                </td>
+                <td colspan="2">Gross Amount:&nbsp;</td>
+                <td style="text-align: right;">₹ {{order.total.grossAmount}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Payment Given: &nbsp;₹ {{order.total.paymentGiven}}</td>
+                <td>Payment Left: &nbsp;₹ {{order.total.paymentLeft}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+
+                    <strong>Terms and conditions:</strong>
+                    <br/>
+                </td>
+                <td colspan="3" style="text-align: right;">
+                    <strong>For Paper and Films International</strong>
+                    <br/>
+                    <br/>
+                    <strong>Proprietor</strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p style="text-align: center">--------------------------------------------------- ✂ ---------------------------------------------------</p>
+<div style="border-collapse: collapse" border="1">
+    <table style=" width: 100%; border-collapse: collapse; padding: 2px" border="1">
+        <tbody style="width: 100%">
+            <tr>
+                <td colspan="7" style="font-size:20px;font-weight: bold ;text-align: center">
+                    Cost Estimation (Vendor Copy)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>M/s {{order.client.name}}</strong>
+                    <br/> {{order.client.address.addressLine}}
+                    <br/> {{order.client.address.state}}
+                    <br/> Contact: {{order.client.contactNumber}}
+                </td>
+                <td colspan="3">
+                    <strong>Invoice #: {{order.id}}</strong>
+                    <br/>
+                    <strong>Shipping Address</strong>
+                    <br/> {{order.client.shippingAddress.addressLine}}
+                    <br/> {{order.client.shippingAddress.state}}
+                </td>
+                <td colspan="1">
+                    <p style="text-align: right">Date: {{order.date}}</p>
+                    Transporter: {{order.transporter}}
+                    <br/>Place: {{order.client.shippingAddress.state}}
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td style="width: 5%; text-align: right">#</td>
+                <td style="width: 30%;">Description</td>
+                <td style="width: 10%; text-align: center">HSN</td>
+                <td style="width: 10%; text-align: right">Qty</td>
+                <td style="width: 10%; text-align: right">Rate</td>
+                <td style="width: 15%; text-align: center">Unit</td>
+                <td style="width: 20%; text-align: right">Amount</td>
+            </tr>
+            {{#each order.items}}
+
+            <tr style="font-size: 12px">
+                <td style="text-align: right;">{{ sr }}</td>
+                <td>
+                    <strong>{{ name }}</strong>
+                    <br/> {{ description }}
+                </td>
+                <td style="text-align: center">{{ hsnCode }}</td>
+                <td style="text-align: right;">{{ quantity}}</td>
+                <td style="text-align: right;">₹ {{ basePrice}}</td>
+                <td style="text-align: center">{{ unit}}</td>
+                <td style="text-align: right;">₹ {{ amount.grossAmount}}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                </td>
+            </tr>
+
+            <tr style="font-weight: bold">
+                <td colspan="4" rowspan="2">
+                    <strong>Amount in ₹: {{ order.total.totalInWords }} only</strong>
+                </td>
+                <td colspan="2">Gross Amount:&nbsp;</td>
+                <td style="text-align: right;">₹ {{order.total.grossAmount}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Payment Given: &nbsp;₹ {{order.total.paymentGiven}}</td>
+                <td>Payment Left: &nbsp;₹ {{order.total.paymentLeft}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+
+                    <strong>Terms and conditions:</strong>
+                    <br/>
+                </td>
+                <td colspan="3" style="text-align: right;">
+                    <strong>For Paper and Films International</strong>
+                    <br/>
+                    <br/>
+                    <strong>Proprietor</strong>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{{/if}}

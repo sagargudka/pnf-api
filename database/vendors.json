@@ -1,0 +1,14 @@
+{
+  "name": "Paresh Shah",
+  "addressLine": "Plot no. 142/Govt, Industrial Estate, Charkop, Kandivali West, Mumbai 400066",
+  "gstNumber": "27ACNPS9188C1ZX",
+  "website": "www.texprints.com",
+  "emailAddress": "mit721996@gmail.com",
+  "phoneNumber": "99666666666",
+  "panNumber": "ACNPS9188C",
+  "bank": {
+    "accountNumber": "0190102000009966",
+    "addressLine": "IDBI Bank, Kandivali West Branch, Mumbai 400067",
+    "ifscCode": "1BKL000190"
+  }
+}
