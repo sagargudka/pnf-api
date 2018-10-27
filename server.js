@@ -76,4 +76,4 @@ app.get('/orders', (req, res) => {
 app.get('/client/:id', (req, res) => {
   order.getOrderByOrderID(req, res);
 });
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
