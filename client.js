@@ -1,6 +1,10 @@
 var fs = require('fs');
 var uuid = require('uuid/v4');
 var _ = require('underscore');
+const { DATABASE_URL } = process.env;
+const { Client } = require('pg');
+
+const dbClient = new Client({ connectionString: DATABASE_URL });
 
 module.exports = {
   getClient,
@@ -18,7 +22,24 @@ function persistClient(req, res) {
   req.id = uuid();
   data.push(req);
   writeData(data);
-  res.json({ id: req.id });
+
+  dbClient
+    .connect()
+    .then(() =>
+      dbClient.query(
+        `insert into clients(id, data) values (${req.id}, ${JSON.stringify(
+          req
+        )})`
+      )
+    )
+    .then(result => {
+      res.json({ id: req.id });
+      dbClient.end();
+    })
+    .catch(err => {
+      res.json(`${JSON.stringify(err)}`);
+      client.end();
+    });
 }
 
 function deleteClient(params, res) {

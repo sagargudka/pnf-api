@@ -27,21 +27,20 @@ app.use((req, res, next) => {
 });
 
 app.get('/livecheck', (req, res) => {
-  // res.send(`Running ${DATABASE_URL}`);
-  const client = new Client({ connectionString: DATABASE_URL });
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  client
-    .connect()
-    .then(() => client.query(`select * from public.hellotable`))
-    .then(result => {
-      res.end(`${JSON.stringify(result)}`);
-      client.end();
-    })
-    .catch(err => {
-      res.end(`${JSON.stringify(err)}`);
-      client.end();
-    });
+  res.send(`Running...`);
+  // const client = new Client({ connectionString: DATABASE_URL });
+
+  // client
+  //   .connect()
+  //   .then(() => client.query(`select * from public.hellotable`))
+  //   .then(result => {
+  //     res.end(`${JSON.stringify(result)}`);
+  //     client.end();
+  //   })
+  //   .catch(err => {
+  //     res.end(`${JSON.stringify(err)}`);
+  //     client.end();
+  //   });
 });
 
 app.get('/items', function(req, res) {
