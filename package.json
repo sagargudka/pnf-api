@@ -16,6 +16,7 @@
     "html-pdf": "^2.2.0",
     "moment": "^2.22.2",
     "number-to-words": "^1.2.3",
+    "pg": "^7.6.0",
     "phantomjs": "^2.1.7",
     "phantomjs-prebuilt": "^2.1.16",
     "underscore": "^1.9.1",

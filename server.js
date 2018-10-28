@@ -13,6 +13,7 @@ var items = require('./database/inventory');
 var app = express();
 // respond with "hello world" when a GET request is made to the homepage
 const { DATABASE_URL } = process.env;
+const { Client } = require('pg');
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -27,6 +28,20 @@ app.use((req, res, next) => {
 
 app.get('/livecheck', (req, res) => {
   res.send(`Running ${DATABASE_URL}`);
+  const client = new Client({ connectionString: DATABASE_URL });
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  client
+    .connect()
+    .then(() => client.query('SELECT * FROM Orders'))
+    .then(result => {
+      res.end(`${result}`);
+      client.end();
+    })
+    .catch(() => {
+      res.end('ERROR');
+      client.end();
+    });
 });
 
 app.get('/items', function(req, res) {
