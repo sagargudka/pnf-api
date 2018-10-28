@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/livecheck', (req, res) => {
-  res.send(`Running ${DATABASE_URL}`);
+  // res.send(`Running ${DATABASE_URL}`);
   const client = new Client({ connectionString: DATABASE_URL });
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
