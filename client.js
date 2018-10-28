@@ -29,7 +29,7 @@ function persistClient(req, res) {
       dbClient.query(
         `insert into clients(id, data) values (${req.id}, ${JSON.stringify(
           req
-        )})`
+        )});`
       )
     )
     .then(result => {
