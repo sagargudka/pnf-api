@@ -12,6 +12,7 @@ var items = require('./database/inventory');
 // client.time = moment().format('hh : mm : ss');
 var app = express();
 // respond with "hello world" when a GET request is made to the homepage
+const { DATABASE_URL } = process.env;
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -22,6 +23,10 @@ app.use((req, res, next) => {
   );
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
   next();
+});
+
+app.get('/livecheck', (req, res) => {
+  res.send(`Running ${DATABASE_URL}`);
 });
 
 app.get('/items', function(req, res) {
