@@ -33,7 +33,7 @@ app.get('/livecheck', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   client
     .connect()
-    .then(() => client.query(`select * from public.Orders`))
+    .then(() => client.query(`select * from public.hellotable`))
     .then(result => {
       res.end(`${JSON.stringify(result)}`);
       client.end();
