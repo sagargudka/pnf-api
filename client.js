@@ -26,11 +26,10 @@ function persistClient(req, res) {
   dbClient
     .connect()
     .then(() =>
-      dbClient.query(
-        `insert into clients(id, data) values (${req.id}, ${JSON.stringify(
-          req
-        )});`
-      )
+      dbClient.query(`INSERT into clients(id, data) values ($1, $2)`, [
+        req.id,
+        JSON.stringify(req)
+      ])
     )
     .then(result => {
       console.log(result);
