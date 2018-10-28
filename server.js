@@ -33,7 +33,11 @@ app.get('/livecheck', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   client
     .connect()
-    .then(() => client.query('SELECT * FROM Orders'))
+    .then(() =>
+      client.query(
+        `select * from information_schema.tables where table_schema='public'`
+      )
+    )
     .then(result => {
       res.end(`${result}`);
       client.end();
