@@ -33,12 +33,12 @@ function persistClient(req, res) {
       )
     )
     .then(result => {
-      res.json({ id: req.id });
+      res.json(result);
       dbClient.end();
     })
     .catch(err => {
       res.json(`${JSON.stringify(err)}`);
-      client.end();
+      dbClient.end();
     });
 }
 
