@@ -38,8 +38,8 @@ app.get('/livecheck', (req, res) => {
       res.end(`${result}`);
       client.end();
     })
-    .catch(() => {
-      res.end('ERROR');
+    .catch(err => {
+      res.end(`${err}`);
       client.end();
     });
 });
