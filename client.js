@@ -33,10 +33,12 @@ function persistClient(req, res) {
       )
     )
     .then(result => {
+      console.log(result);
       res.json(result);
       dbClient.end();
     })
     .catch(err => {
+      console.log(err);
       res.json(`${JSON.stringify(err)}`);
       dbClient.end();
     });
