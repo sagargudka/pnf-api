@@ -39,11 +39,11 @@ app.get('/livecheck', (req, res) => {
       )
     )
     .then(result => {
-      res.end(`${result}`);
+      res.end(`${JSON.stringify(result)}`);
       client.end();
     })
     .catch(err => {
-      res.end(`${err}`);
+      res.end(`${JSON.stringify(err)}`);
       client.end();
     });
 });
