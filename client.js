@@ -73,14 +73,12 @@ function readData() {
     .connect()
     .then(() => dbClient.query(`Select * from clients`))
     .then(result => {
-      console.log(result);
-      res.json({ data: result });
       dbClient.end();
+      return result;
     })
     .catch(err => {
-      console.log(err);
-      res.json(err);
       dbClient.end();
+      return err;
     });
 }
 
