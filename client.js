@@ -66,7 +66,22 @@ function updateClient(req, params, res) {
 }
 
 function readData() {
-  return JSON.parse(fs.readFileSync('database/clients.json'));
+
+  //return JSON.parse(fs.readFileSync('database/clients.json'));
+
+  dbClient
+    .connect()
+    .then(() => dbClient.query(`Select * from clients`))
+    .then(result => {
+      console.log(result);
+      res.json(result);
+      dbClient.end();
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(`${JSON.stringify(err)}`);
+      dbClient.end();
+    });
 }
 
 function writeData(data) {
