@@ -77,7 +77,7 @@ function readData() {
     .then(() => dbClient.query(`Select * from clients`))
     .then(result => {
       dbClient.end();
-      return result;
+      return _.map(result.rows, row => row.data)
     })
     .catch(err => {
       dbClient.end();
