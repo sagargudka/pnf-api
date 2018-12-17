@@ -14,7 +14,10 @@ module.exports = {
 };
 
 function getClient(req, res) {
-  res.send(readData());
+  readData()
+    .then(result => {
+      res.send(result);
+    });
 }
 
 function persistClient(req, res) {
