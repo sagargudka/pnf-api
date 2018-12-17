@@ -72,7 +72,7 @@ function readData() {
 
   //return JSON.parse(fs.readFileSync('database/clients.json'));
 
-  dbClient
+  return dbClient
     .connect()
     .then(() => dbClient.query(`Select * from clients`))
     .then(result => {
