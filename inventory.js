@@ -1,6 +1,8 @@
 var fs = require('fs');
 var uuid = require('uuid/v4');
 var _ = require('underscore');
+var database = require('./database.js');
+
 module.exports = {
   getItemsDatabase,
   getItems,
@@ -19,10 +21,18 @@ function getItems(req, res) {
   res.send(readData());
 }
 
-function addItem(req, res) {
+async function addItem(req, res) {
   var data = readData();
   req.id = uuid();
   data.push(req);
+
+  try {
+    await database.insertRow('inventory', req);
+    // res.json(result);
+  } catch (err) {
+    res.json(`${JSON.stringify(err)}`);
+  }
+
   writeData(data);
   res.send('OK');
 }
