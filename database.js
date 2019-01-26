@@ -9,6 +9,7 @@ module.exports = {
   getAll,
   insertRow,
   deleteRow,
+  updateRow,
 }
 
 async function getAll(tableName) {
@@ -70,7 +71,29 @@ async function deleteRow(tableName, id) {
 
     return result;
   } catch (err) {
-    console.log(err);
+    if (dbClient) {
+      await dbClient.end();
+    }
+    throw err;
+  }
+}
+
+async function updateRow(tableName, id, data) {
+  let dbClient;
+  try {
+    dbClient = new Client({ connectionString: DATABASE_URL });
+
+    await dbClient.connect();
+
+    let result = await dbClient.query(
+      `UPDATE ${tableName} SET data = $2 WHERE id = $1`,
+      [id, JSON.stringify(data)]
+    );
+
+    await dbClient.end();
+
+    return result;
+  } catch (err) {
     if (dbClient) {
       await dbClient.end();
     }

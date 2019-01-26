@@ -36,40 +36,30 @@ async function persistClient(req, res) {
 }
 
 async function deleteClient(params, res) {
-  // var clientList = await readData();
-
   try {
     let result = await database.deleteRow('clients', params.id);
     res.send(result);
   } catch (err) {
     res.send(err);
   }
-
-
-  // var clientIndex = _.findIndex(
-  //   clientList,
-  //   clientInfo => clientInfo.id == params.id
-  // );
-  // if (clientIndex >= 0) {
-  //   clientList.splice(clientIndex, 1);
-  //   writeData(clientList);
-  //   res.send('ok');
-  // }
 }
 
 async function updateClient(req, params, res) {
-  var clientList = await readData();
-  var clientInfo = _.find(clientList, cli => cli.id === params.id);
-  console.log(clientInfo + 'client info');
-  updateCLientProperties(clientInfo, params);
-  writeData(clientList);
-  res.send('update done');
+  try {
+    var clientList = await readData();
+    var clientInfo = _.find(clientList, cli => cli.id === params.id);
+
+    updateClientProperties(clientInfo, req);
+
+    let result = await database.updateRow('clients', params.id, clientInfo);
+
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
 }
 
 function readData() {
-
-  //return JSON.parse(fs.readFileSync('database/clients.json'));
-
   return database.getAll('clients');
 }
 
@@ -77,7 +67,7 @@ function writeData(data) {
   fs.writeFileSync('database/clients.json', JSON.stringify(data));
 }
 
-function updateCLientProperties(destination, source) {
+function updateClientProperties(destination, source) {
   _.each(_.keys(source), property => {
     if (_.has(destination, property)) {
       destination[property] = source[property];
