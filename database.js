@@ -62,7 +62,8 @@ async function deleteRow(tableName, id) {
     await dbClient.connect();
 
     let result = await dbClient.query(
-      `DELETE FROM ${tableName} WHERE id = ${id}`
+      `DELETE FROM ${tableName} WHERE id = $1`,
+      id
     );
 
     await dbClient.end();
