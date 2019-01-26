@@ -19,7 +19,10 @@ function getClient(req, res) {
   readData()
     .then(result => {
       res.send(result);
-    });
+    })
+    .catch(err => {
+      res.send(err);
+    })
 }
 
 function persistClient(req, res) {
