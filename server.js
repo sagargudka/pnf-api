@@ -43,7 +43,7 @@ app.get('/livecheck', (req, res) => {
   //   });
 });
 
-app.get('/items', function(req, res) {
+app.get('/items', function (req, res) {
   inventory.getItems(req, res);
 });
 app.patch('/items/:id/stock/:quantity', (req, res) => {
@@ -53,7 +53,7 @@ app.patch('/items/:id/stock/:quantity', (req, res) => {
 app.patch('/items/:id/consume/:quantity', (req, res) => {
   inventory.consumeStock(req.params, res);
 });
-app.post('/items', function(req, res) {
+app.post('/items', function (req, res) {
   inventory.addItem(req.body, res);
 });
 

@@ -26,7 +26,7 @@ function getClient(req, res) {
 }
 
 async function persistClient(req, res) {
-  var data = readData();
+  var data = await readData();
   req.id = uuid();
   data.push(req);
   writeData(data);
@@ -39,8 +39,8 @@ async function persistClient(req, res) {
   }
 }
 
-function deleteClient(params, res) {
-  var clientList = readData();
+async function deleteClient(params, res) {
+  var clientList = await readData();
   var clientIndex = _.findIndex(
     clientList,
     clientInfo => clientInfo.id == params.id
@@ -52,8 +52,8 @@ function deleteClient(params, res) {
   }
 }
 
-function updateClient(req, params, res) {
-  var clientList = readData();
+async function updateClient(req, params, res) {
+  var clientList = await readData();
   var clientInfo = _.find(clientList, cli => cli.id === params.id);
   console.log(clientInfo + 'client info');
   updateCLientProperties(clientInfo, params);
