@@ -21,7 +21,7 @@ module.exports = {
   getOrderByOrderID
 };
 
-function getOrders(res) {
+async function getOrders(res) {
   try {
     let result = await database.getAll('orders');
     res.send(result);

@@ -46,6 +46,7 @@ app.get('/livecheck', (req, res) => {
 app.get('/items', function (req, res) {
   inventory.getItems(req, res);
 });
+
 app.patch('/items/:id/stock/:quantity', (req, res) => {
   inventory.addStock(req.params, res);
 });
