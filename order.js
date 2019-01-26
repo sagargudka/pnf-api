@@ -23,7 +23,7 @@ module.exports = {
 
 async function getOrders(req, res) {
   try {
-    let result = await database.getAll('orders');
+    let result = await readData();
     res.send(result);
   } catch (err) {
     res.send(err);
@@ -61,16 +61,10 @@ async function postOrder(req, res) {
     if (err) {
       return res.send({ err: err });
     }
-    var data = readData();
+    var data = await readData();
     data.push(req);
 
-    database.insertRow('orders', req)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(errr => {
-        console.log(errr);
-      });
+    await database.insertRow('orders', req);
 
     writeData(data);
 
@@ -96,14 +90,14 @@ async function postOrder(req, res) {
   // res.send(fs.writeFileSync('database/orders.json', JSON.stringify(data)));
 }
 
-function getOrderByOrderID(req, res) {
-  var orderList = readData();
+async function getOrderByOrderID(req, res) {
+  var orderList = await readData();
   var orderDetails = _find(orderList, ord => ord.id === req.id);
   res.send(JSON.parse(orderDetails));
 }
 
 function readData() {
-  return JSON.parse(fs.readFileSync('database/orders.json'));
+  return database.getAll('orders');
 }
 
 function writeData(data) {
