@@ -14,10 +14,12 @@ async function get(tableName) {
     let result = await dbClient.connect()
       .then(() => dbClient.query(`Select * from ${tableName}`));
 
+    console.log(result);
     dbClient.end();
 
     return _.map(result.rows, row => row.data);
   } catch (err) {
+    console.log(err);
     dbClient.end();
 
     throw err;
