@@ -13,18 +13,20 @@ async function get(tableName) {
   console.log('attempting to fetch');
   let dbClient;
   try {
-    dbClient = new Client({ connectionString: DATABASE_URL }).connect();
+    dbClient = new Client({ connectionString: DATABASE_URL });
+
+    await dbClient.connect();
 
     let result = await dbClient.query(`Select * from ${tableName}`);
 
     console.log(result);
-    dbClient.end();
+    await dbClient.end();
 
     return _.map(result.rows, row => row.data);
   } catch (err) {
     console.log(err);
     if (dbClient) {
-      dbClient.end();
+      await dbClient.end();
     }
     throw err;
   }
