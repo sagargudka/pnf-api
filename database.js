@@ -2,7 +2,7 @@
 
 const { DATABASE_URL } = process.env;
 const { Client } = require('pg');
-
+const _ = require('underscore');
 
 
 module.exports = {
