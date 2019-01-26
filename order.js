@@ -57,7 +57,6 @@ async function postOrder(req, res) {
     }
   });
 
-
   pdfGenerator.generatePdf(req, (err, result) => {
     if (err) {
       return res.send({ err: err });
@@ -66,9 +65,10 @@ async function postOrder(req, res) {
     data.push(req);
 
     try {
-      let res = await database.insertRow('orders', req);
-      console.log(res);
+      // let res = await database.insertRow('orders', req);
+      // console.log(res);
     } catch (errr) {
+      console.log(errr);
       return res.send({ err: errr });
     }
 
