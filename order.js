@@ -64,13 +64,13 @@ async function postOrder(req, res) {
     var data = readData();
     data.push(req);
 
-    try {
-      // let res = await database.insertRow('orders', req);
-      // console.log(res);
-    } catch (errr) {
-      console.log(errr);
-      return res.send({ err: errr });
-    }
+    database.insertRow('orders', req)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(errr => {
+        console.log(errr);
+      });
 
     writeData(data);
 
