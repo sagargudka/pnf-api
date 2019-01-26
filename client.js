@@ -1,11 +1,8 @@
+'use strict';
+
 var fs = require('fs');
 var uuid = require('uuid/v4');
 var _ = require('underscore');
-const { DATABASE_URL } = process.env;
-const { Client } = require('pg');
-
-const dbClient = new Client({ connectionString: DATABASE_URL });
-
 const database = require('./database.js');
 
 module.exports = {
@@ -15,14 +12,13 @@ module.exports = {
   updateClient
 };
 
-function getClient(req, res) {
-  readData()
-    .then(result => {
-      res.send(result);
-    })
-    .catch(err => {
-      res.send(err);
-    })
+async function getClient(req, res) {
+  try {
+    let result = await readData();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
 }
 
 async function persistClient(req, res) {
@@ -32,7 +28,7 @@ async function persistClient(req, res) {
   writeData(data);
 
   try {
-    let result = await database.insert('clients', req);
+    let result = await database.insertRow('clients', req);
     res.json(result);
   } catch (err) {
     res.json(`${JSON.stringify(err)}`);
@@ -40,16 +36,25 @@ async function persistClient(req, res) {
 }
 
 async function deleteClient(params, res) {
-  var clientList = await readData();
-  var clientIndex = _.findIndex(
-    clientList,
-    clientInfo => clientInfo.id == params.id
-  );
-  if (clientIndex >= 0) {
-    clientList.splice(clientIndex, 1);
-    writeData(clientList);
-    res.send('ok');
+  // var clientList = await readData();
+
+  try {
+    let result = await database.deleteRow('clients', params.id);
+    res.send(result);
+  } catch (err) {
+    res.send(err);
   }
+
+
+  // var clientIndex = _.findIndex(
+  //   clientList,
+  //   clientInfo => clientInfo.id == params.id
+  // );
+  // if (clientIndex >= 0) {
+  //   clientList.splice(clientIndex, 1);
+  //   writeData(clientList);
+  //   res.send('ok');
+  // }
 }
 
 async function updateClient(req, params, res) {
@@ -65,7 +70,7 @@ function readData() {
 
   //return JSON.parse(fs.readFileSync('database/clients.json'));
 
-  return database.get('clients');
+  return database.getAll('clients');
 }
 
 function writeData(data) {

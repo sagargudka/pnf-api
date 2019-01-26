@@ -72,6 +72,7 @@ app.get('/clients', (req, res) => {
 app.post('/client', (req, res) => {
   client.persistClient(req.body, res);
 });
+
 app.delete('/client/:id', (req, res) => {
   client.deleteClient(req.params, res);
 });

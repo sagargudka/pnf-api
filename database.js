@@ -6,11 +6,12 @@ const _ = require('underscore');
 
 
 module.exports = {
-  get,
-  insert,
+  getAll,
+  insertRow,
+  deleteRow,
 }
 
-async function get(tableName) {
+async function getAll(tableName) {
   let dbClient;
   try {
     dbClient = new Client({ connectionString: DATABASE_URL });
@@ -30,7 +31,7 @@ async function get(tableName) {
   }
 }
 
-async function insert(tableName, data) {
+async function insertRow(tableName, data) {
   let dbClient;
   try {
     dbClient = new Client({ connectionString: DATABASE_URL });
@@ -40,6 +41,28 @@ async function insert(tableName, data) {
     let result = await dbClient.query(
       `INSERT into ${tableName}(id, data) values ($1, $2)`,
       [data.id, JSON.stringify(data)]
+    );
+
+    await dbClient.end();
+
+    return result;
+  } catch (err) {
+    if (dbClient) {
+      await dbClient.end();
+    }
+    throw err;
+  }
+}
+
+async function deleteRow(tableName, id) {
+  let dbClient;
+  try {
+    dbClient = new Client({ connectionString: DATABASE_URL });
+
+    await dbClient.connect();
+
+    let result = await dbClient.query(
+      `DELETE FROM ${tableName} WHERE id = ${id}`
     );
 
     await dbClient.end();
