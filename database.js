@@ -69,6 +69,7 @@ async function deleteRow(tableName, id) {
 
     return result;
   } catch (err) {
+    console.log(err);
     if (dbClient) {
       await dbClient.end();
     }
