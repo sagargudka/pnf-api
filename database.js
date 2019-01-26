@@ -63,7 +63,7 @@ async function deleteRow(tableName, id) {
 
     let result = await dbClient.query(
       `DELETE FROM ${tableName} WHERE id = $1`,
-      id
+      [id]
     );
 
     await dbClient.end();
