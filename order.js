@@ -57,7 +57,7 @@ async function postOrder(req, res) {
     }
   });
 
-  pdfGenerator.generatePdf(req, (err, result) => {
+  pdfGenerator.generatePdf(req, async (err, result) => {
     if (err) {
       return res.send({ err: err });
     }
