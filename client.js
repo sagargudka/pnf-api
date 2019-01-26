@@ -1,6 +1,5 @@
 'use strict';
 
-var fs = require('fs');
 var uuid = require('uuid/v4');
 var _ = require('underscore');
 const database = require('./database.js');
@@ -25,7 +24,6 @@ async function persistClient(req, res) {
   var data = await readData();
   req.id = uuid();
   data.push(req);
-  writeData(data);
 
   try {
     let result = await database.insertRow('clients', req);
@@ -61,10 +59,6 @@ async function updateClient(req, params, res) {
 
 function readData() {
   return database.getAll('clients');
-}
-
-function writeData(data) {
-  fs.writeFileSync('database/clients.json', JSON.stringify(data));
 }
 
 function updateClientProperties(destination, source) {

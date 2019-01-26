@@ -13,15 +13,21 @@ var user = require('./database/clients.json');
 var uuid = require('uuid/v4');
 var pdfGenerator = require('./pdfGenerator');
 var inventory = require('./inventory');
+var database = require('./database.js');
 
 module.exports = {
-  getOrder,
+  getOrders,
   postOrder,
   getOrderByOrderID
 };
 
-function getOrder(res) {
-  res.send(readData());
+function getOrders(res) {
+  try {
+    let result = await database.getAll('orders');
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
 }
 
 function postOrder(req, res) {

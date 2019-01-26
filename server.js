@@ -90,7 +90,7 @@ app.post('/order', (req, res) => {
 });
 
 app.get('/orders', (req, res) => {
-  order.getOrder(res);
+  order.getOrders(res);
 });
 
 app.get('/client/:id', (req, res) => {
