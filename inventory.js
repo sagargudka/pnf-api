@@ -34,7 +34,6 @@ async function addItem(req, res) {
     res.json(`${JSON.stringify(err)}`);
   }
 
-  writeData(data);
   res.send('OK');
 }
 
@@ -47,7 +46,6 @@ async function addStock(req, res) {
     return;
   }
   item.quantity += parseInt(req.quantity);
-  // writeData(itemList);
   let result = await database.updateRow('inventory', item.id, item);
 
   res.send(item);
@@ -57,7 +55,7 @@ async function consumeStock(req) {
   var itemList = await readData();
   var item = _.find(itemList, itm => itm.id === req.id);
   item.quantity -= req.quantity;
-  writeData(itemList);
+  let result = await database.updateRow('inventory', item.id, item);
 }
 
 async function editItem(req, params, res) {
@@ -65,28 +63,25 @@ async function editItem(req, params, res) {
   var item = _.find(itemList, itm => itm.id === params.id);
 
   updateProperties(item, req);
-  writeData(itemList);
-
+  let result = await database.updateRow('inventory', item.id, item);
   res.send(item);
 }
 
 async function deleteItem(params, res) {
-  var itemList = await readData();
-  var itemIndex = _.findIndex(itemList, itm => itm.id === params.id);
-  if (itemIndex >= 0) {
-    itemList.splice(itemIndex, 1);
-    writeData(itemList);
-  }
+  // var itemList = await readData();
+  // var itemIndex = _.findIndex(itemList, itm => itm.id === params.id);
+  // if (itemIndex >= 0) {
+  //   itemList.splice(itemIndex, 1);
+  //   writeData(itemList);
+  // }
+
+  let result = await database.deleteRow('inventory', params.id);
 
   res.send('ok');
 }
 
 function readData() {
   return database.getAll('inventory');
-}
-
-function writeData(data) {
-  fs.writeFileSync('database/inventory.json', JSON.stringify(data));
 }
 
 function updateProperties(destination, source) {
