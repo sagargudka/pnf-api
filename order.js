@@ -66,8 +66,6 @@ async function postOrder(req, res) {
 
     await database.insertRow('orders', req);
 
-    writeData(data);
-
     res.send({ err: null, data: result });
   });
 
@@ -98,8 +96,4 @@ async function getOrderByOrderID(req, res) {
 
 function readData() {
   return database.getAll('orders');
-}
-
-function writeData(data) {
-  fs.writeFileSync('database/orders.json', JSON.stringify(data));
 }
