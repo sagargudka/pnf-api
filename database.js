@@ -10,7 +10,6 @@ module.exports = {
 }
 
 async function get(tableName) {
-  console.log('attempting to fetch');
   let dbClient;
   try {
     dbClient = new Client({ connectionString: DATABASE_URL });
@@ -19,12 +18,10 @@ async function get(tableName) {
 
     let result = await dbClient.query(`Select * from ${tableName}`);
 
-    console.log(result);
     await dbClient.end();
 
-    return _.map(result.rows, row => row.data);
+    return result && result.rows && result.rows.length ? _.map(result.rows, row => row.data) : [];
   } catch (err) {
-    console.log(err);
     if (dbClient) {
       await dbClient.end();
     }
