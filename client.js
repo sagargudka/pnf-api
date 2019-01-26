@@ -25,30 +25,18 @@ function getClient(req, res) {
     })
 }
 
-function persistClient(req, res) {
+async function persistClient(req, res) {
   var data = readData();
   req.id = uuid();
   data.push(req);
   writeData(data);
 
-  dbClient
-    .connect()
-    .then(() =>
-      dbClient.query(`INSERT into clients(id, data) values ($1, $2)`, [
-        req.id,
-        JSON.stringify(req)
-      ])
-    )
-    .then(result => {
-      console.log(result);
-      res.json(result);
-      dbClient.end();
-    })
-    .catch(err => {
-      console.log(err);
-      res.json(`${JSON.stringify(err)}`);
-      dbClient.end();
-    });
+  try {
+    let result = await database.insert('clients', req);
+    res.json(result);
+  } catch (err) {
+    res.json(`${JSON.stringify(err)}`);
+  }
 }
 
 function deleteClient(params, res) {
