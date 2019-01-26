@@ -3,16 +3,19 @@
 const { DATABASE_URL } = process.env;
 const { Client } = require('pg');
 
-const dbClient = new Client({ connectionString: DATABASE_URL });
+
 
 module.exports = {
   get,
 }
 
 async function get(tableName) {
+  console.log('attempting to fetch');
+  let dbClient;
   try {
-    let result = await dbClient.connect()
-      .then(() => dbClient.query(`Select * from ${tableName}`));
+    dbClient = new Client({ connectionString: DATABASE_URL }).connect();
+
+    let result = await dbClient.query(`Select * from ${tableName}`);
 
     console.log(result);
     dbClient.end();
@@ -20,8 +23,9 @@ async function get(tableName) {
     return _.map(result.rows, row => row.data);
   } catch (err) {
     console.log(err);
-    dbClient.end();
-
+    if (dbClient) {
+      dbClient.end();
+    }
     throw err;
   }
 }
