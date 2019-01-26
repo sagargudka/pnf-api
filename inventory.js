@@ -13,16 +13,17 @@ module.exports = {
   deleteItem
 };
 
-function getItemsDatabase() {
+async function getItemsDatabase() {
   return readData();
 }
 
-function getItems(req, res) {
-  res.send(readData());
+async function getItems(req, res) {
+  let result = await readData();
+  res.send(result);
 }
 
 async function addItem(req, res) {
-  var data = readData();
+  var data = await readData();
   req.id = uuid();
   data.push(req);
 
@@ -37,8 +38,8 @@ async function addItem(req, res) {
   res.send('OK');
 }
 
-function addStock(req, res) {
-  var itemList = readData();
+async function addStock(req, res) {
+  var itemList = await readData();
   var item = _.find(itemList, itm => itm.id === req.id);
   if (!item) {
     res.status(400);
@@ -50,15 +51,15 @@ function addStock(req, res) {
   res.send(item);
 }
 
-function consumeStock(req) {
-  var itemList = readData();
+async function consumeStock(req) {
+  var itemList = await readData();
   var item = _.find(itemList, itm => itm.id === req.id);
   item.quantity -= req.quantity;
   writeData(itemList);
 }
 
-function editItem(req, params, res) {
-  var itemList = readData();
+async function editItem(req, params, res) {
+  var itemList = await readData();
   var item = _.find(itemList, itm => itm.id === params.id);
 
   updateProperties(item, req);
@@ -67,8 +68,8 @@ function editItem(req, params, res) {
   res.send(item);
 }
 
-function deleteItem(params, res) {
-  var itemList = readData();
+async function deleteItem(params, res) {
+  var itemList = await readData();
   var itemIndex = _.findIndex(itemList, itm => itm.id === params.id);
   if (itemIndex >= 0) {
     itemList.splice(itemIndex, 1);
@@ -79,7 +80,7 @@ function deleteItem(params, res) {
 }
 
 function readData() {
-  return JSON.parse(fs.readFileSync('database/inventory.json'));
+  return database.getAll('inventory');
 }
 
 function writeData(data) {

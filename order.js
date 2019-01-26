@@ -31,7 +31,7 @@ async function getOrders(req, res) {
 }
 
 async function postOrder(req, res) {
-  let itemsDB = inventory.getItemsDatabase();
+  let itemsDB = await inventory.getItemsDatabase();
   let errors = [];
 
   _.each(req.items, item => {
