@@ -6,6 +6,8 @@ const { Client } = require('pg');
 
 const dbClient = new Client({ connectionString: DATABASE_URL });
 
+const database = require('./database.js');
+
 module.exports = {
   getClient,
   persistClient,
@@ -72,17 +74,7 @@ function readData() {
 
   //return JSON.parse(fs.readFileSync('database/clients.json'));
 
-  return dbClient
-    .connect()
-    .then(() => dbClient.query(`Select * from clients`))
-    .then(result => {
-      dbClient.end();
-      return _.map(result.rows, row => row.data)
-    })
-    .catch(err => {
-      dbClient.end();
-      return err;
-    });
+  return database.get('clients');
 }
 
 function writeData(data) {
