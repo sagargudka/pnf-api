@@ -21,7 +21,7 @@ module.exports = {
   getOrderByOrderID
 };
 
-async function getOrders(res) {
+async function getOrders(req, res) {
   try {
     let result = await database.getAll('orders');
     res.send(result);
@@ -30,7 +30,7 @@ async function getOrders(res) {
   }
 }
 
-function postOrder(req, res) {
+async function postOrder(req, res) {
   let itemsDB = inventory.getItemsDatabase();
   let errors = [];
 
@@ -46,6 +46,7 @@ function postOrder(req, res) {
       }
     }
   });
+
   if (errors.length) {
     return res.send({ err: errors });
   }
@@ -56,7 +57,6 @@ function postOrder(req, res) {
     }
   });
 
-  console.log(req.client.address[0], req.client.address[1]);
 
   pdfGenerator.generatePdf(req, (err, result) => {
     if (err) {
@@ -64,6 +64,14 @@ function postOrder(req, res) {
     }
     var data = readData();
     data.push(req);
+
+    try {
+      let res = await database.insertRow('orders', req);
+      console.log(res);
+    } catch (errr) {
+      return res.send({ err: errr });
+    }
+
     writeData(data);
 
     res.send({ err: null, data: result });
