@@ -47,7 +47,9 @@ async function addStock(req, res) {
     return;
   }
   item.quantity += parseInt(req.quantity);
-  writeData(itemList);
+  // writeData(itemList);
+  let result = await database.updateRow('inventory', item.id, item);
+
   res.send(item);
 }
 
