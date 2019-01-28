@@ -91,7 +91,7 @@ app.post('/order', (req, res) => {
 });
 
 app.get('/orders', (req, res) => {
-  order.getOrders(res);
+  order.getOrders(req, res);
 });
 
 app.get('/client/:id', (req, res) => {
