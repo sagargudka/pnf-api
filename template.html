@@ -1,3 +1,17 @@
+<style>
+    html {
+        font-size: 62.5%
+    }
+
+    body {
+        font-size: 0.75em;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+</style>
+
 {{#if order.isTaxInvoice}}
 <div style="border-collapse: collapse" border="1">
     <table style="width: 100%">
@@ -9,8 +23,8 @@
                 </td>
                 <td style="width: 75%;">
                     <strong style=" font-size: 30px">PAPER N FILMS INTERNATIONAL</strong>
-                    <br/>Address - {{vendor.addressLine}}
-                    <br/> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
+                    <br />Address - {{vendor.addressLine}}
+                    <br /> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
                 </td>
             </tr>
         </tbody>
@@ -26,26 +40,28 @@
             <tr>
                 <td colspan="3">
                     <strong>M/s {{order.client.name}}</strong>
-                    <br/> {{order.client.address.addressLine}}
-                    <br/> {{order.client.address.state}}
-                    <br/> Contact: {{order.client.phoneNumber}}
-                    <br/>
+                    <br /> {{order.client.address.addressLine}} {{order.client.address.city}}
+                    {{order.client.address.pincode}}
+                    <br /> {{order.client.address.state}}
+                    <br /> Contact: {{order.client.phoneNumber}}
+                    <br />
                     <strong>GST #: {{order.client.gstNumber}}</strong>
                 </td>
                 <td colspan="4">
                     <strong>Invoice #: {{order.id}}</strong>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <strong>Shipping Address</strong>
-                    <br/> {{order.client.shippingAddress.addressLine}}
-                    <br/> {{order.client.shippingAddress.state}}
-                    <br/>
+                    <br /> {{order.client.shippingAddress.addressLine}} {{order.client.shippingAddress.city}}
+                    {{order.client.shippingAddress.pincode}}
+                    <br /> {{order.client.shippingAddress.state}}
+                    <br />
                 </td>
                 <td colspan="4">
                     <p style="text-align: right">Date: {{order.date}}</p>
-                    <br/>
-                    <br/>Place: {{order.client.shippingAddress.state}}
-                    <br/>Transporter: {{order.transporter}}
+                    <br />
+                    <br />Place: {{order.client.shippingAddress.state}}
+                    <br />Transporter: {{order.transporter}}
                 </td>
             </tr>
             <tr style="font-weight: bold">
@@ -67,7 +83,7 @@
                 <td style="text-align: right;">{{ sr }}</td>
                 <td>
                     <strong>{{ name }}</strong>
-                    <br/> {{ description }}
+                    <br /> {{ description }}
                 </td>
                 <td style="text-align: center">{{ hsnCode }}</td>
                 <td style="text-align: right;">{{ quantity}}</td>
@@ -75,257 +91,257 @@
                 <td style="text-align: center">{{ unit}}</td>
                 <td style="text-align: right;">₹ {{ amount.netAmount }}</td>
                 <td style="text-align: right;">₹ {{ amount.cgst.value }}
-                    <br/>( {{amount.cgst.percent}}% )</td>
+                    <br />( {{amount.cgst.percent}}% )</td>
                 <td style="text-align: right;">₹ {{ amount.sgst.value }}
-                    <br/>( {{amount.sgst.percent}}% )</td>
+                    <br />( {{amount.sgst.percent}}% )</td>
                 <td style="text-align: right;">₹ {{ amount.igst.value }}
-                    <br/>( {{amount.igst.percent}}% )</td>
+                    <br />( {{amount.igst.percent}}% )</td>
                 <td style="text-align: right;">₹ {{ amount.grossAmount }}</td>
             </tr>
             {{/each}}
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
                 </td>
             </tr>
 
@@ -333,11 +349,11 @@
 
                 <td colspan="5" rowspan="5">
                     Paper N Films International
-                    <br/> GST #: {{vendor.gstNumber}}
-                    <br/> PAN #: {{vendor.panNumber}}
-                    <br/> Account #: {{vendor.bank.accountNumber}}
-                    <br/> {{vendor.bank.addressLine}}
-                    <br/> IFSC code: {{vendor.bank.ifscCode}}
+                    <br /> GST #: {{vendor.gstNumber}}
+                    <br /> PAN #: {{vendor.panNumber}}
+                    <br /> Account #: {{vendor.bank.accountNumber}}
+                    <br /> {{vendor.bank.addressLine}}
+                    <br /> IFSC code: {{vendor.bank.ifscCode}}
                 </td>
                 <td colspan="3">Net Amount:</td>
                 <td colspan="3" style="text-align: right;">₹ {{order.total.netAmount}}</td>
@@ -380,24 +396,24 @@
                 <td colspan="5">
 
                     <strong>Terms and conditions:</strong>
-                    <br/>
+                    <br />
                     <blockquote>
                         *Goods once sold cannot be taken back or exchanged.
-                        <br/> * All Bank charges and insurance are borne by the consignee.
-                        <br/> * Our responsiblity ceases as soon as the goods leave our premise.
-                        <br/> * Payment within due date otherwise 24% p.a. interest will be charged.
-                        <br/> * Our turnover is less than 1.5 cr.
+                        <br /> * All Bank charges and insurance are borne by the consignee.
+                        <br /> * Our responsiblity ceases as soon as the goods leave our premise.
+                        <br /> * Payment within due date otherwise 24% p.a. interest will be charged.
+                        <br /> * Our turnover is less than 1.5 cr.
 
                     </blockquote>
 
                 </td>
                 <td colspan="6" style="text-align: right;">
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
                     <strong>For Paper and Films International</strong>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <strong>Proprietor</strong>
 
                 </td>
@@ -416,8 +432,8 @@
                 </td>
                 <td style="width: 75%;">
                     <strong style=" font-size: 30px">PAPER N FILMS INTERNATIONAL</strong>
-                    <br/>Address - {{vendor.addressLine}}
-                    <br/> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
+                    <br />Address - {{vendor.addressLine}}
+                    <br /> {{vendor.phoneNumber}} / {{vendor.emailAddress}} / {{vendor.website}}
                 </td>
             </tr>
         </tbody>
@@ -432,21 +448,23 @@
             <tr>
                 <td colspan="3">
                     <strong>M/s {{order.client.name}}</strong>
-                    <br/> {{order.client.address.addressLine}}
-                    <br/> {{order.client.address.state}}
-                    <br/> Contact: {{order.client.contactNumber}}
+                    <br /> {{order.client.address.addressLine}} {{order.client.address.city}}
+                    {{order.client.address.pincode}}
+                    <br /> {{order.client.address.state}}
+                    <br /> Contact: {{order.client.contactNumber}}
                 </td>
                 <td colspan="3">
                     <strong>Invoice #: {{order.id}}</strong>
-                    <br/>
+                    <br />
                     <strong>Shipping Address</strong>
-                    <br/> {{order.client.shippingAddress.addressLine}}
-                    <br/> {{order.client.shippingAddress.state}}
+                    <br /> {{order.client.shippingAddress.addressLine}} {{order.client.shippingAddress.city}}
+                    {{order.client.shippingAddress.pincode}}
+                    <br /> {{order.client.shippingAddress.state}}
                 </td>
                 <td colspan="1">
                     <p style="text-align: right">Date: {{order.date}}</p>
                     Transporter: {{order.transporter}}
-                    <br/>Place: {{order.client.shippingAddress.state}}
+                    <br />Place: {{order.client.shippingAddress.state}}
                 </td>
             </tr>
             <tr style="font-weight: bold">
@@ -464,7 +482,7 @@
                 <td style="text-align: right;">{{ sr }}</td>
                 <td>
                     <strong>{{ name }}</strong>
-                    <br/> {{ description }}
+                    <br /> {{ description }}
                 </td>
                 <td style="text-align: center">{{ hsnCode }}</td>
                 <td style="text-align: right;">{{ quantity }}</td>
@@ -475,163 +493,163 @@
             {{/each}}
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
                 </td>
             </tr>
             <tr style="font-weight: bold">
@@ -650,12 +668,12 @@
                 <td colspan="4">
 
                     <strong>Terms and conditions:</strong>
-                    <br/>
+                    <br />
                 </td>
                 <td colspan="3" style="text-align: right;">
                     <strong>For Paper and Films International</strong>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <strong>Proprietor</strong>
                 </td>
             </tr>
@@ -663,7 +681,8 @@
     </table>
 </div>
 
-<p style="text-align: center">--------------------------------------------------- ✂ ---------------------------------------------------</p>
+<p style="text-align: center">--------------------------------------------------- ✂
+    ---------------------------------------------------</p>
 <div style="border-collapse: collapse" border="1">
     <table style=" width: 100%; border-collapse: collapse; padding: 2px" border="1">
         <tbody style="width: 100%">
@@ -675,21 +694,23 @@
             <tr>
                 <td colspan="3">
                     <strong>M/s {{order.client.name}}</strong>
-                    <br/> {{order.client.address.addressLine}}
-                    <br/> {{order.client.address.state}}
-                    <br/> Contact: {{order.client.contactNumber}}
+                    <br /> {{order.client.address.addressLine}} {{order.client.address.city}}
+                    {{order.client.address.pincode}}
+                    <br /> {{order.client.address.state}}
+                    <br /> Contact: {{order.client.contactNumber}}
                 </td>
                 <td colspan="3">
                     <strong>Invoice #: {{order.id}}</strong>
-                    <br/>
+                    <br />
                     <strong>Shipping Address</strong>
-                    <br/> {{order.client.shippingAddress.addressLine}}
-                    <br/> {{order.client.shippingAddress.state}}
+                    <br /> {{order.client.shippingAddress.addressLine}} {{order.client.shippingAddress.city}}
+                    {{order.client.shippingAddress.pincode}}
+                    <br /> {{order.client.shippingAddress.state}}
                 </td>
                 <td colspan="1">
                     <p style="text-align: right">Date: {{order.date}}</p>
                     Transporter: {{order.transporter}}
-                    <br/>Place: {{order.client.shippingAddress.state}}
+                    <br />Place: {{order.client.shippingAddress.state}}
                 </td>
             </tr>
             <tr style="font-weight: bold">
@@ -707,7 +728,7 @@
                 <td style="text-align: right;">{{ sr }}</td>
                 <td>
                     <strong>{{ name }}</strong>
-                    <br/> {{ description }}
+                    <br /> {{ description }}
                 </td>
                 <td style="text-align: center">{{ hsnCode }}</td>
                 <td style="text-align: right;">{{ quantity}}</td>
@@ -718,163 +739,163 @@
             {{/each}}
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
-                </td>
-                <td>
-                    <br/>
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
                 </td>
                 <td>
-                    <br/>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
                 </td>
             </tr>
 
@@ -894,12 +915,12 @@
                 <td colspan="4">
 
                     <strong>Terms and conditions:</strong>
-                    <br/>
+                    <br />
                 </td>
                 <td colspan="3" style="text-align: right;">
                     <strong>For Paper and Films International</strong>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <strong>Proprietor</strong>
 
                 </td>
