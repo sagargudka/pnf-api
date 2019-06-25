@@ -63,8 +63,9 @@ function readData() {
 
 function updateClientProperties(destination, source) {
   _.each(_.keys(source), property => {
-    if (_.has(destination, property)) {
-      destination[property] = source[property];
-    }
+    // Disabling the property check.
+    // if (_.has(destination, property)) {
+    destination[property] = source[property];
+    // }
   });
 }
