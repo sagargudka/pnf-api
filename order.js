@@ -58,17 +58,24 @@ async function postOrder(req, res) {
     }
   });
 
-  pdfGenerator.generatePdf(req, async (err, result) => {
-    if (err) {
-      return res.send({ err: err });
-    }
-    var data = await readData();
-    data.push(req);
+  // pdfGenerator.generatePdf(req, async (err, result) => {
+  //   if (err) {
+  //     return res.send({ err: err });
+  //   }
+  //   var data = await readData();
+  //   data.push(req);
 
-    await database.insertRow('orders', req);
+  //   await database.insertRow('orders', req);
 
-    res.send({ err: null, data: result });
-  });
+  //   res.send({ err: null, data: result });
+  // });
+
+  var data = await readData();
+  data.push(req);
+
+  await database.insertRow('orders', req);
+  res.send({ err: null, data: 'success!' });
+
 
   // var clientIndex = _.find(user, cli => cli.id === req.id);
   // console.log(clientIndex);
@@ -98,10 +105,7 @@ async function getOrderByOrderID(req, res) {
 async function downloadBill(req, res) {
   let id = req.query.id;
   var orderList = await readData();
-  console.log(orderList);
   var orderDetails = _.find(orderList, ord => ord.id === id);
-
-  console.log(orderDetails);
 
   pdfGenerator.generatePdf(orderDetails, async (err, result) => {
     if (err) {
