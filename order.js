@@ -18,7 +18,8 @@ var database = require('./database.js');
 module.exports = {
   getOrders,
   postOrder,
-  getOrderByOrderID
+  getOrderByOrderID,
+  downloadBill
 };
 
 async function getOrders(req, res) {
@@ -90,10 +91,26 @@ async function postOrder(req, res) {
 
 async function getOrderByOrderID(req, res) {
   var orderList = await readData();
-  var orderDetails = _find(orderList, ord => ord.id === req.id);
+  var orderDetails = _.find(orderList, ord => ord.id === req.id);
   res.send(JSON.parse(orderDetails));
+}
+
+async function downloadBill(req, res) {
+  let id = req.query.id;
+  var orderList = await readData();
+
+  var orderDetails = _.find(orderList, ord => ord.id === id);
+
+  pdfGenerator.generatePdf(orderDetails, async (err, result) => {
+    if (err) {
+      return res.send({ err: err });
+    }
+
+    res.send({ err: null, data: result });
+  });
 }
 
 function readData() {
   return database.getAll('orders');
 }
+

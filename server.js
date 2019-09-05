@@ -90,6 +90,10 @@ app.post('/order', (req, res) => {
   order.postOrder(req.body, res);
 });
 
+app.get('/download', (req, res) => {
+  order.downloadBill(req, res);
+});
+
 app.get('/orders', (req, res) => {
   order.getOrders(req, res);
 });
