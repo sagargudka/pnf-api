@@ -98,8 +98,10 @@ async function getOrderByOrderID(req, res) {
 async function downloadBill(req, res) {
   let id = req.query.id;
   var orderList = await readData();
-
+  console.log(orderList);
   var orderDetails = _.find(orderList, ord => ord.id === id);
+
+  console.log(orderDetails);
 
   pdfGenerator.generatePdf(orderDetails, async (err, result) => {
     if (err) {
