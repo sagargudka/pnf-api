@@ -14,7 +14,7 @@
     "express": "^4.16.3",
     "handlebar": "^1.0.0",
     "html-pdf": "^2.2.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "number-to-words": "^1.2.3",
     "pg": "^7.6.0",
     "phantomjs": "^2.1.7",
