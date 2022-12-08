@@ -11,7 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "capitalize": "^1.0.0",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "handlebar": "^1.0.0",
     "html-pdf": "^2.2.0",
     "moment": "^2.22.2",
